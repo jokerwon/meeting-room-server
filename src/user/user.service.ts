@@ -313,6 +313,13 @@ export class UserService {
     user2.email = 'yy@yy.com';
     user2.nickName = '李四';
 
+    const user3 = new User();
+    user3.username = 'jokerwon';
+    user3.password = md5('111111');
+    user3.isAdmin = true;
+    user3.email = 'weng.jiankai@iwhalecloud.com';
+    user3.nickName = 'Joker Won';
+
     const role1 = new Role();
     role1.name = '管理员';
 
@@ -329,12 +336,13 @@ export class UserService {
 
     user1.roles = [role1];
     user2.roles = [role2];
+    user3.roles = [role1, role2];
 
     role1.permissions = [permission1, permission2];
     role2.permissions = [permission1];
 
     await this.permissionRepository.save([permission1, permission2]);
     await this.roleRepository.save([role1, role2]);
-    await this.userRepository.save([user1, user2]);
+    await this.userRepository.save([user1, user2, user3]);
   }
 }
