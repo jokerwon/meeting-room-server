@@ -1,3 +1,4 @@
+import * as path from 'path';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -32,7 +33,7 @@ import { Booking } from './booking/entities/booking.entity';
     }),
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: 'src/.env',
+      envFilePath: path.join(__dirname, '.env'),
     }),
     TypeOrmModule.forRootAsync({
       useFactory(configService: ConfigService) {
