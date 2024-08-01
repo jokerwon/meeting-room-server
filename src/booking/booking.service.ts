@@ -70,14 +70,6 @@ export class BookingService {
     const [bookings, totalCount] = await this.entityManager.findAndCount(
       Booking,
       {
-        select: {
-          id: true,
-          startTime: true,
-          user: {
-            id: true,
-            nickName: true,
-          },
-        },
         where: condition,
         relations: {
           user: true,
@@ -89,7 +81,10 @@ export class BookingService {
     );
 
     return {
-      bookings,
+      bookings: bookings.map((item) => {
+        delete item.user.password;
+        return item;
+      }),
       totalCount,
     };
   }
