@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY package.json .
 
-RUN npm config set registry https://registry.npmmirror.com/
+RUN npm config set registry http://mirrors.cloud.tencent.com/npm/
 
 RUN npm install
 
@@ -24,6 +24,6 @@ RUN npm config set registry https://registry.npmmirror.com/
 
 RUN npm install --production
 
-EXPOSE 3005
+EXPOSE 3000
 
 CMD ["node", "/app/main.js"]
