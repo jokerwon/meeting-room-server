@@ -317,7 +317,7 @@ export class UserService {
     user3.username = 'jokerwon';
     user3.password = md5('111111');
     user3.isAdmin = true;
-    user3.email = 'weng.jiankai@iwhalecloud.com';
+    user3.email = 'xxx@xxxx.com';
     user3.nickName = 'Joker Won';
 
     const role1 = new Role();
